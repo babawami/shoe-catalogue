@@ -9,42 +9,35 @@ function ShoeFinder(){
 
  function shoeMatch(chosenBrand,chosenSize,chosenColour){
    const shoeArr = [];
-   for(var i = 0; i< shoeData.length; i++){
-     let listObj = shoeData[i];
-     // console.log(listObj);
-     if(chosenBrand ==listObj.brand && chosenSize == listObj.size && chosenColour == listObj.color ){
-       shoeArr.push(listObj)
-     }
 
-     if(chosenBrand === listObj.brand && chosenSize === listObj.size && chosenColour === ''){
-       shoeArr.push(listObj);
-     }
-     if(chosenBrand === listObj.brand && chosenSize === '' && chosenColour === listObj.color){
-       shoeArr.push(listObj);
-     }
-     if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === listObj.color){
-       shoeArr.push(listObj);
-     }
-     if(chosenBrand === listObj.brand && chosenSize === ''&& chosenColour === ''){
-       shoeArr.push(listObj);
-     }
-     if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === ''){
-       shoeArr.push(listObj);
-     }
-     if(chosenBrand === '' && chosenSize === '' && chosenColour === listObj.color){
-       shoeArr.push(listObj);
-     }
+    shoeData.forEach(function(listObj) {
+      if(chosenBrand ==listObj.brand && chosenSize == listObj.size && chosenColour == listObj.color ){
+        shoeArr.push(listObj)
+      }
 
-
-   }
-      // console.log(shoeMatch('Adidas'));
-   return shoeArr;
+      if(chosenBrand === listObj.brand && chosenSize === listObj.size && chosenColour === ''){
+        shoeArr.push(listObj);
+      }
+      if(chosenBrand === listObj.brand && chosenSize === '' && chosenColour === listObj.color){
+        shoeArr.push(listObj);
+      }
+      if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === listObj.color){
+        shoeArr.push(listObj);
+      }
+      if(chosenBrand === listObj.brand && chosenSize === ''&& chosenColour === ''){
+        shoeArr.push(listObj);
+      }
+      if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === ''){
+        shoeArr.push(listObj);
+      }
+      if(chosenBrand === '' && chosenSize === '' && chosenColour === listObj.color){
+        shoeArr.push(listObj);
+      }
+   })
+    return shoeArr;
+}
 
 
-   //  shoeData.forEach(function(listObj) {
-   // console.log(listObj)
-   //
-   // })
 
 
 
@@ -70,11 +63,9 @@ function ShoeFinder(){
 //    //return shoeList;
 //
 //
-}
+
 
 return {
-// matchingShoe: matchingShoe,
 shoeMatch,
-
 }
 }

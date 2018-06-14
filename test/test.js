@@ -1,7 +1,7 @@
 describe(' Shoe Catalogue ', function() {
   it("Return Shoe/shoes that match the brand selected", function() {
     let shoes = ShoeFinder();
-    console.log(shoes.shoeMatch('Adidas', '', ''));
+    // console.log(shoes.shoeMatch('Adidas', '', ''));
     assert.deepEqual(shoes.shoeMatch('Adidas', '', ''), [{
       color: 'white',
       brand: "Adidas",
@@ -79,6 +79,21 @@ describe(' Shoe Catalogue ', function() {
       in_stock: 3,
     }
    ]);
+  });
+  it("Return Shoe/shoes that match the brand,colour and size selected", function() {
+    let shoes = ShoeFinder();
+    assert.deepEqual(shoes.shoeMatch('Adidas',10,'white'), [{
+      color: 'white',
+      brand: 'Adidas',
+      price: 275,
+      size: 10,
+      in_stock: 3,
+    }
+   ]);
+  });
+  it("Return nothing if no match found", function() {
+    let shoes = ShoeFinder();
+    assert.deepEqual(shoes.shoeMatch('Adidas','','black'), []);
   });
 
 
