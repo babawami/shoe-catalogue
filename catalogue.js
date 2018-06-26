@@ -7,37 +7,47 @@ function ShoeFinder(){
         {color : 'black',  brand : "Puma",price : 275,size: 9,in_stock : 3},
 ];
 
+const shoeArr = [];
+
  function shoeMatch(chosenBrand,chosenSize,chosenColour){
-   const shoeArr = [];
+   for(var i = 0; i< shoeData.length; i++){
+     let listObj = shoeData[i];
+     // console.log(listObj);
+     if(chosenBrand ==listObj.brand && chosenSize == listObj.size && chosenColour == listObj.color ){
+       shoeArr.push(listObj)
+     }
+     else if(chosenBrand === listObj.brand && chosenSize === listObj.size && chosenColour === ''){
+       shoeArr.push(listObj);
+     }
 
-    shoeData.forEach(function(listObj) {
-      if(chosenBrand ==listObj.brand && chosenSize == listObj.size && chosenColour == listObj.color ){
-        shoeArr.push(listObj)
-      }
+     else if(chosenBrand === listObj.brand && chosenSize === '' && chosenColour === listObj.color){
+       shoeArr.push(listObj);
+     }
+    else if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === listObj.color){
+       shoeArr.push(listObj);
+     }
+    else if(chosenBrand === listObj.brand && chosenSize === ''&& chosenColour === ''){
+       shoeArr.push(listObj);
+     }
+  else   if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === ''){
+       shoeArr.push(listObj);
+     }
+    else if(chosenBrand === '' && chosenSize === '' && chosenColour === listObj.color){
+       shoeArr.push(listObj);
+     }
 
-      if(chosenBrand === listObj.brand && chosenSize === listObj.size && chosenColour === ''){
-        shoeArr.push(listObj);
-      }
-      if(chosenBrand === listObj.brand && chosenSize === '' && chosenColour === listObj.color){
-        shoeArr.push(listObj);
-      }
-      if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === listObj.color){
-        shoeArr.push(listObj);
-      }
-      if(chosenBrand === listObj.brand && chosenSize === ''&& chosenColour === ''){
-        shoeArr.push(listObj);
-      }
-      if(chosenBrand === '' && chosenSize === listObj.size && chosenColour === ''){
-        shoeArr.push(listObj);
-      }
-      if(chosenBrand === '' && chosenSize === '' && chosenColour === listObj.color){
-        shoeArr.push(listObj);
-      }
-   })
-    return shoeArr;
+
+   }
+      // console.log(shoeMatch('Adidas'));
+   return shoeArr;
+   }
+
+
+function errorMessage(){
+  if( shoeArr.length === 0){
+    return 'No Shoe Found'
+  }
 }
-
-
 
 
 
@@ -67,5 +77,7 @@ function ShoeFinder(){
 
 return {
 shoeMatch,
+errorMessage
+
 }
 }

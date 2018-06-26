@@ -1,7 +1,13 @@
 describe(' Shoe Catalogue ', function() {
+  it("Return error message if nothing found", function() {
+    let shoes = ShoeFinder();
+    shoes.shoeMatch('Adidas', 7, 'black');
+    // console.log(shoes.errorMessage());
+    assert.deepEqual(shoes.errorMessage(),'No Shoe Found' );
+  });
   it("Return Shoe/shoes that match the brand selected", function() {
     let shoes = ShoeFinder();
-    // console.log(shoes.shoeMatch('Adidas', '', ''));
+    // console.log(shoes.shoeMatch('Adidas', 7, 'black'));
     assert.deepEqual(shoes.shoeMatch('Adidas', '', ''), [{
       color: 'white',
       brand: "Adidas",
