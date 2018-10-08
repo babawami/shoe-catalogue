@@ -5,44 +5,46 @@ function ShoeFinder() {
       price: 350,
       size: 7,
       in_stock: 5,
-      id: 1
+      id: 0
     },
     {
       color: 'white',
       brand: "adidas",
       price: 275,
       size: 10,
-      in_stock: 3
+      in_stock: 3,
+      id:1
     },
     {
       color: 'brown',
       brand: "adidas",
       price: 350,
       size: 7,
-      in_stock: 20
+      in_stock: 20,
+      id:2
     },
     {
       color: 'blue',
       brand: "reebok",
       price: 450,
       size: 6,
-      in_stock: 15
+      in_stock: 15,
+      id:3
     },
     {
       color: 'black',
       brand: "puma",
       price: 275,
       size: 9,
-      in_stock: 3
-    },
+      in_stock: 3,
+      id:4
+    }
   ];
   let cart = [];
 
   let shoeArr = [];
 
-  function returnAllShoes() {
-    return shoeData;
-  }
+ 
 
   //define a filtering function
   function shoeMatch(chosenColour, chosenBrand, chosenSize) {
@@ -77,8 +79,6 @@ function ShoeFinder() {
       product_item = true;
       // return "inventory updated"
     }
-    // console.log(shoeData)
-   
   }
   //If product item is false push new shoe to shoe shoeData
   let id = shoeData.length
@@ -92,12 +92,10 @@ function ShoeFinder() {
       in_stock: newStock
     });
   }
-  console.log(shoeData)
   return shoeData;
 };
 
   //add to cart 
-
   function addToBasket(shoeSelected) {
     // will have filtered shoes and the user will select the shoe they want from the catelogue
     for (let i = 0; i < shoeData.length; i++) {
@@ -109,7 +107,6 @@ function ShoeFinder() {
         }
       } 
     }
-    //  console.log(cart)
   }
 
   function cancelOrder() {
@@ -119,19 +116,23 @@ function ShoeFinder() {
       for (let y = 0; y < shoeData.length; y++) {
         let currentShoe = shoeData[y];
         if (currentShoe.id == currentCartItem.id) {
-          // console.log(shoeData[i].id)
-          // console.log(shoeData)
           currentShoe.in_stock++
         }
       }
     }
-    console.log(shoeData)
     return cart = [];
   }
 
+  function checkOut(){
+  return cart = [];
+  }
+
   function returnCart() {
-    console.log(cart);
     return cart;
+  }
+
+  function returnAllShoes() {
+    return shoeData;
   }
 
 
@@ -139,14 +140,14 @@ function ShoeFinder() {
 
 
   return {
-     returnAllShoes,
+    returnAllShoes,
     shoeMatch,
     errorMessage,
     addStock,
     addToBasket,
     returnCart,
-    cancelOrder
-
+    cancelOrder,
+    checkOut
   }
 }
 
@@ -167,3 +168,4 @@ function ShoeFinder() {
 
 
 // }
+
