@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Mswenko Shoes</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="shoe-dom.js" charset="utf-8"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- adding handlebars tempalte -->
+  <script type="text/x-template" class="shoeTemplate">
+    <ul>
+{{! each helps with looping key values of the map}}
+         {{#each addReg}}
+
+        <li>{{this}}</li>
+
+        {{/each}}
+
+
+    </ul>
+
+      </script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <h1>Shoe catalogue</h1>
+
+    <div class="row">
+        <div class="twelve columns">
+            <div class="three columns">
+                <form  class="dropdown-menu" >
+                <select class="">
+                  <option class="" value="All">Brand</option>
+                  <option class=""  value="nike" >Nike</option>
+                  <option  class="" value="addidas ">Addidas</option>
+                  <option class=""   value="puma ">Puma</option>
+                  <option  class="" value="newbalance ">New Balance</option>
+                </select>
+                </form>
+            </div>
+            <div class="three columns ">
+                <form  class="" >
+                <select class="town ">
+                  <option class="" value="All">Colour</option>
+                  <option class=""  value="black" >Black</option>
+                  <option  class="" value="white ">White</option>
+                  <option class=""   value="blue ">Blue</option>
+                  <option  class="" value="red ">Red</option>
+                </select>
+                </form>
+            </div>
+            <div class="three columns ">
+                <form  class="" >
+                <select class="">
+                  <option class="" value="All">Size</option>
+                  <option class=""  value="6" >6</option>
+                  <option  class="" value="7">7</option>
+                  <option class=""   value="8">8</option>
+                  <option  class="" value="9">9</option>
+                </select>
+                </form>
+            </div>
+            <div class="three columns">
+            <button type="button" class="button-primary">Apply</button>
+            </div>
+  </div>
+  </div>
+  <div class="row">
+      <div class="displayShoes">
+
+      </div>
+  </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
