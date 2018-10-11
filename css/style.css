@@ -1,3 +1,8 @@
 select{
     width: 100%
 }
+
+.displayShoes{
+    text-transform: capitalize
+}
+

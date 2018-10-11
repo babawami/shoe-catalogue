@@ -15,7 +15,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="catalogue.js"  charset="utf-8"></script>
   <script src="shoe-dom.js" charset="utf-8"></script>
 
   <!-- Favicon
@@ -30,16 +31,17 @@
 
   <!-- adding handlebars tempalte -->
   <script type="text/x-template" class="shoeTemplate">
-    <ul>
-{{! each helps with looping key values of the map}}
-         {{#each addReg}}
-
-        <li>{{this}}</li>
-
-        {{/each}}
-
-
-    </ul>
+  
+         {{#each shoesData}}
+         <ul>
+        <li>{{brand}}</li>
+        <li>{{color}}</li>
+        <li>Size: {{size}}</li>
+        <li>Available: {{in_stock}}</li>
+        <li>Price: R{{price}}</li>
+       </ul>
+       <button class="cart-btn">add to cart</button>
+    {{/each}}
 
       </script>
 
@@ -55,42 +57,43 @@
         <div class="twelve columns">
             <div class="three columns">
                 <form  class="dropdown-menu" >
-                <select class="">
-                  <option class="" value="All">Brand</option>
-                  <option class=""  value="nike" >Nike</option>
-                  <option  class="" value="addidas ">Addidas</option>
-                  <option class=""   value="puma ">Puma</option>
-                  <option  class="" value="newbalance ">New Balance</option>
+                <select class="brands">
+                  <option class="brands" value="">Brand</option>
+                  <option class="brands"  value="nike" >Nike</option>
+                  <option  class="brands" value="adidas">Adidas</option>
+                  <option class="brands"   value="puma">Puma</option>
+                  <option  class="brands" value="newbalance">New Balance</option>
                 </select>
                 </form>
             </div>
             <div class="three columns ">
                 <form  class="" >
-                <select class="town ">
-                  <option class="" value="All">Colour</option>
+                <select class="colours ">
+                  <option class="" value="">Colour</option>
                   <option class=""  value="black" >Black</option>
-                  <option  class="" value="white ">White</option>
-                  <option class=""   value="blue ">Blue</option>
-                  <option  class="" value="red ">Red</option>
+                  <option  class="" value="white">White</option>
+                  <option class=""   value="blue">Blue</option>
+                  <option  class="" value="red">Red</option>
                 </select>
                 </form>
             </div>
             <div class="three columns ">
                 <form  class="" >
-                <select class="">
-                  <option class="" value="All">Size</option>
-                  <option class=""  value="6" >6</option>
-                  <option  class="" value="7">7</option>
-                  <option class=""   value="8">8</option>
-                  <option  class="" value="9">9</option>
+                <select class="sizes">
+                  <option class="sizes" value="">Size</option>
+                  <option class="sizes"  value="6" >6</option>
+                  <option  class="sizes" value="7">7</option>
+                  <option class="sizes"   value="8">8</option>
+                  <option  class="sizes" value="9">9</option>
                 </select>
                 </form>
             </div>
             <div class="three columns">
-            <button type="button" class="button-primary">Apply</button>
+            <button type="button" class=" fliter-btn button-primary">Apply</button>
             </div>
   </div>
   </div>
+  <div class="error"></div>
   <div class="row">
       <div class="displayShoes">
 
