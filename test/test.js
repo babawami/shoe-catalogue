@@ -8,7 +8,7 @@ describe(' Shoe Catalogue ', function () {
 
     it('Return Shoe/shoes that match the color selected', function () {
         let shoes = ShoeFinder();
-        // console.log(shoes.shoeMatch('Adidas', 7, 'black'));
+        console.log(shoes.shoeMatch('white', '', ''))
         assert.deepEqual(shoes.shoeMatch('white', '', ''), [
             { color: 'white', brand: 'adidas', price: 275, size: 10, in_stock: 3, id: 2 }
         ]);
@@ -16,7 +16,7 @@ describe(' Shoe Catalogue ', function () {
 
     it('Return Shoe/shoes that match the size selected', function () {
         let shoes = ShoeFinder();
-        console.log(shoes.shoeMatch('', '', 7))
+        // console.log(shoes.shoeMatch('', '', 7))
         assert.deepEqual(shoes.shoeMatch('', '', 7), [{
             color: 'blue',
             brand: 'nike',

@@ -1,8 +1,8 @@
 function ShoeFinder (storedShoes, storedCart) {
     let shoeData = [
+        { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 5, id: 1 },
         { color: 'white', brand: 'adidas', price: 275, size: 10, in_stock: 3, id: 2 },
         { color: 'brown', brand: 'adidas', price: 350, size: 7, in_stock: 20, id: 3 },
-        { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 5, id: 1 },
         { color: 'blue', brand: 'reebok', price: 450, size: 6, in_stock: 15, id: 4 },
         { color: 'black', brand: 'puma', price: 275, size: 9, in_stock: 3, id: 5 }
     ];
@@ -26,10 +26,11 @@ function ShoeFinder (storedShoes, storedCart) {
     function shoeMatch (chosenColour, chosenBrand, chosenSize) {
         shoeArr = [];
         // loop through the list
+        chosenSize = parseInt(chosenSize);
         shoeData.forEach(function (currentData) {
             if (chosenColour === currentData.color || chosenColour === '') {
                 if (chosenBrand === currentData.brand || chosenBrand === '') {
-                    if (chosenSize === currentData.size || chosenSize === '') {
+                    if (chosenSize === currentData.size || isNaN(chosenSize)) {
                         shoeArr.push(currentData);
                     }
                 }
@@ -73,11 +74,11 @@ function ShoeFinder (storedShoes, storedCart) {
     };
 
     // add to cart
-    function addToBasket (shoeSelected) {
+    function addToBasket (shoeSelectedId) {
     // will have filtered shoes and the user will select the shoe they want from the catelogue
         for (let i = 0; i < shoeData.length; i++) {
             let currentShoe = shoeData[i];
-            if (currentShoe.id === shoeSelected) {
+            if (currentShoe.id === shoeSelectedId) {
                 if (currentShoe.in_stock > 0) {
                     currentShoe.in_stock--;
                     cart.push(currentShoe);

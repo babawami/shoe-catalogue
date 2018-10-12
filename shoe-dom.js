@@ -39,7 +39,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function addToCart () {
+        getShoesData.addToBasket();
+        console.log(getShoesData.returnCart());
+    }
+
     filterBtn.addEventListener('click', function () {
         showFilterdShoes();
+    });
+
+    cartBtn.addEventListener('click', function () {
+        addToCart();
     });
 });
