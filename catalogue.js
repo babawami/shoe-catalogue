@@ -13,9 +13,10 @@ function ShoeFinder (storedShoes, storedCart) {
     if (storedShoes && storedShoes.length > 0) {
         shoeData = [];
         for (let i = 0; i < storedShoes.length; i++) {
-            shoeArr.push(storedShoes[i]);
+            shoeData.push(storedShoes[i]);
         }
     }
+
     if (storedCart && storedCart.length > 0) {
         for (let i = 0; i < storedCart.length; i++) {
             cart.push(storedCart[i]);
@@ -25,6 +26,7 @@ function ShoeFinder (storedShoes, storedCart) {
     // define a filtering function
     function shoeMatch (chosenColour, chosenBrand, chosenSize) {
         shoeArr = [];
+        
         // loop through the list
         chosenSize = parseInt(chosenSize);
         shoeData.forEach(function (currentData) {
