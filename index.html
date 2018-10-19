@@ -45,6 +45,40 @@
 
   </script>
 
+  <script type="text/x-template" class="shoeCart">
+
+    
+        {{#each basket}}
+         <ul>
+        <li>{{brand}}</li>
+        <li>{{color}}</li>
+        <li>Size: {{size}}</li>
+        <li>Available: {{in_stock}}</li>
+        <li>Price: R{{price}}</li>
+       </ul>
+       <!-- <button value={{this.id}} class="cart-btn" onclick="addToCart({{this.id}})">add to cart</button> -->
+    {{/each}}
+
+  </script>
+
+  <script type="text/x-template" class="addCart">
+
+    <h6>Shopping Cart</h6>
+    {{#each cart}}
+     <ul>
+    <li>{{brand}}</li>
+    <li>{{color}}</li>
+    <li>Size: {{size}}</li>
+    <li>Quantity: {{qty}}</li>
+    <li>Price: R{{price}}</li>
+   </ul>
+   <!-- <button value={{this.id}} class="cart-btn" onclick="addToCart({{this.id}})">add to cart</button> -->
+{{/each}}
+
+</script>
+
+
+
 </head>
 
 <body>
@@ -109,10 +143,11 @@
     </div>
     <div class="error"></div>
     <div class="row">
-      <div class="displayShoes">
-
-      </div>
+      <div class="displayShoes"></div>
+      
     </div>
+
+    <div class="displayCart"></div>
   </div>
   <script src="catalogue.js" charset="utf-8"></script>
   <script src="shoe-dom.js" charset="utf-8"></script>
