@@ -21,14 +21,24 @@ let cartTemplate = document.querySelector('.addCart').innerHTML;
 let compileCartTemplate = Handlebars.compile(cartTemplate);
 let displayCart = document.querySelector('.displayCart');
 
-window.addEventListener('load', function () {
+function renderTemplate () {
     let shoesData = {
         shoesData: getShoesData.returnAllShoes()
     };
 
     localStorage.setItem('storeShoes', JSON.stringify(shoesData.shoesData));
     displayShoes.innerHTML = complieShoeTemplate(shoesData);
-    
+};
+
+window.addEventListener('load', function () {
+    // let shoesData = {
+    //     shoesData: getShoesData.returnAllShoes()
+    // };
+
+    // localStorage.setItem('storeShoes', JSON.stringify(shoesData.shoesData));
+    // displayShoes.innerHTML = complieShoeTemplate(shoesData);
+    renderTemplate();
+
     let showCart = {
         cart: getShoesData.returnCart()
     };
@@ -65,16 +75,12 @@ function addToCart (shoeId) {
     };
     displayCart.innerHTML = compileCartTemplate(showCart);
     localStorage.setItem('storeCart', JSON.stringify(showCart.cart));
+    renderTemplate();
 }
 
-// function renderCart () {
-//     let showCart = {
-//         cart: getShoesData.returnCart()
-//     };
-
-//     console.log(showCart.cart);
-//     displayCart.innerHTML = compileCartTemplate(showCart);
-// }
+function removeFromCart () {
+    getShoesData.cancelOrder();
+}
 
 filterBtn.addEventListener('click', function () {
     showFilterdShoes();
