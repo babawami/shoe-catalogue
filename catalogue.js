@@ -148,7 +148,7 @@ function ShoeFinder (storedShoes, storedCart) {
             for (let y = 0; y < shoeData.length; y++) {
                 let currentShoe = shoeData[y];
                 if (currentShoe.id === currentCartItem.id) {
-                    currentShoe.in_stock++;
+                    currentShoe.in_stock += currentCartItem.qty;
                 }
             }
         }
