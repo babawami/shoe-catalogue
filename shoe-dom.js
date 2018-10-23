@@ -6,6 +6,8 @@ let colourOption = document.querySelector('.colours');
 let brandOption = document.querySelector('.brands');
 let sizeOption = document.querySelector('.sizes');
 let errorMessage = document.querySelector('.error');
+let removeBtn = document.querySelector('.remove-btn');
+let checkout = document.querySelector('.checkout-btn');
 
 let shoesStorage = localStorage.getItem('storeShoes') ? JSON.parse(localStorage.getItem('storeShoes')) : [];
 let cartStorage = localStorage.getItem('storeCart') ? JSON.parse(localStorage.getItem('storeCart')) : [];
@@ -79,7 +81,20 @@ function addToCart (shoeId) {
 }
 
 function removeFromCart () {
+    
+    console.log(getShoesData.returnAllShoes());
+    console.log(getShoesData.returnCart());
+    console.log(getShoesData.cancelOrder());
+    console.log(getShoesData.returnCart());
+    getShoesData.returnAllShoes();
+    getShoesData.returnCart();
     getShoesData.cancelOrder();
+    let showCart = {
+        cart: getShoesData.returnCart()
+    };
+    displayCart.innerHTML = compileCartTemplate(showCart);
+    renderTemplate();
+
 }
 
 filterBtn.addEventListener('click', function () {
@@ -90,6 +105,12 @@ cartBtn.addEventListener('click', function () {
     addToCart();
     // console.log(renderCart());
     // renderCart();
+});
+
+removeBtn.addEventListener('click', function () {
+    
+    console.log(removeFromCart());
+    removeFromCart();
 });
 
 // });
