@@ -125,9 +125,6 @@ function ShoeFinder (storedShoes, storedCart) {
                 }
             }
         }
-        // if (cart.length === 0) {
-        //     cart = cart.filter((shoe) => shoe.id !== shoeId);
-        // }
     }
 
     function checkOut () {

@@ -8,7 +8,7 @@ describe(' Shoe Catalogue ', function () {
 
     it('Return Shoe/shoes that match the color selected', function () {
         let shoes = ShoeFinder();
-        console.log(shoes.shoeMatch('white', '', ''))
+        console.log(shoes.shoeMatch('white', '', ''));
         assert.deepEqual(shoes.shoeMatch('white', '', ''), [
             { color: 'white', brand: 'adidas', price: 275, size: 10, in_stock: 3, id: 2 }
         ]);
@@ -128,11 +128,8 @@ describe(' Shoe Catalogue ', function () {
         shoes.addToBasket(1);
         shoes.addToBasket(1);
         assert.deepEqual(shoes.returnCart(), [
-            { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 0, id: 1 },
-            { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 0, id: 1 },
-            { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 0, id: 1 },
-            { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 0, id: 1 },
-            { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 0, id: 1 }
+            { color: 'blue', brand: 'nike', price: 350, size: 7, id: 1, qty: 5 }
+
         ]);
     });
 
@@ -140,7 +137,6 @@ describe(' Shoe Catalogue ', function () {
         let shoes = ShoeFinder();
         shoes.addToBasket(1);
         shoes.addToBasket();
-        console.log(shoes.returnCart());
         assert.deepEqual(shoes.checkOut(), []);
     });
 
@@ -151,7 +147,6 @@ describe(' Shoe Catalogue ', function () {
     });
 
     it('Return 1 stock back when cancelled', function () {
-        
         let shoes = ShoeFinder();
         shoes.addToBasket(1);
         shoes.addToBasket(2);
@@ -160,6 +155,4 @@ describe(' Shoe Catalogue ', function () {
 
         assert.deepEqual(1, shoes.returnCart().length);
     });
-
-
 });
