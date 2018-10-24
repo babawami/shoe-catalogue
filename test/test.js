@@ -149,4 +149,17 @@ describe(' Shoe Catalogue ', function () {
         shoes.addToBasket(1);
         assert.deepEqual(shoes.cancelOrder(), []);
     });
+
+    it('Return 1 stock back when cancelled', function () {
+        
+        let shoes = ShoeFinder();
+        shoes.addToBasket(1);
+        shoes.addToBasket(2);
+
+        shoes.cancelOrder(1);
+
+        assert.deepEqual(1, shoes.returnCart().length);
+    });
+
+
 });

@@ -1,44 +1,10 @@
 function ShoeFinder (storedShoes, storedCart) {
-    let shoeData = [{
-        color: 'blue',
-        brand: 'nike',
-        price: 350,
-        size: 7,
-        in_stock: 5,
-        id: 1
-    },
-    {
-        color: 'white',
-        brand: 'adidas',
-        price: 275,
-        size: 10,
-        in_stock: 3,
-        id: 2
-    },
-    {
-        color: 'brown',
-        brand: 'adidas',
-        price: 350,
-        size: 7,
-        in_stock: 20,
-        id: 3
-    },
-    {
-        color: 'blue',
-        brand: 'reebok',
-        price: 450,
-        size: 6,
-        in_stock: 15,
-        id: 4
-    },
-    {
-        color: 'black',
-        brand: 'puma',
-        price: 275,
-        size: 9,
-        in_stock: 3,
-        id: 5
-    }
+    let shoeData = [
+        { color: 'blue', brand: 'nike', price: 350, size: 7, in_stock: 5, id: 1 },
+        { color: 'white', brand: 'adidas', price: 275, size: 10, in_stock: 3, id: 2 },
+        { color: 'brown', brand: 'adidas', price: 350, size: 7, in_stock: 20, id: 3 },
+        { color: 'blue', brand: 'reebok', price: 450, size: 6, in_stock: 15, id: 4 },
+        { color: 'black', brand: 'puma', price: 275, size: 9, in_stock: 3, id: 5 }
     ];
 
     let cart = [];
@@ -120,11 +86,9 @@ function ShoeFinder (storedShoes, storedCart) {
                     let shoeInCart = cart.find((current) => {
                         return current.id === shoeSelectedId;
                     });
-                    if (!shoeInCart)
-
-                    {
+                    if (!shoeInCart) {
                         currentShoe.in_stock--;
-                        cart.push({
+                        cart.unshift({
                             id: currentShoe.id,
                             color: currentShoe.color,
                             brand: currentShoe.brand,
@@ -142,17 +106,28 @@ function ShoeFinder (storedShoes, storedCart) {
         }
     }
 
-    function cancelOrder () {
+    function cancelOrder (shoeId) {
         for (let i = 0; i < cart.length; i++) {
             let currentCartItem = cart[i];
-            for (let y = 0; y < shoeData.length; y++) {
-                let currentShoe = shoeData[y];
-                if (currentShoe.id === currentCartItem.id) {
-                    currentShoe.in_stock += currentCartItem.qty;
+            if (currentCartItem.id === shoeId) {
+                let foundShoe = shoeData.find((current) => {
+                    return current.id === shoeId;
+                });
+                if (foundShoe) {
+                    if (currentCartItem.qty > 1) {
+                        currentCartItem.qty--;
+                        foundShoe.in_stock++;
+                    } else if (currentCartItem.qty === 1) {
+                        foundShoe.in_stock += currentCartItem.qty;
+                        currentCartItem.qty--;
+                        cart = cart.filter((shoe) => shoe.id !== shoeId);
+                    }
                 }
             }
         }
-        return cart = [];
+        // if (cart.length === 0) {
+        //     cart = cart.filter((shoe) => shoe.id !== shoeId);
+        // }
     }
 
     function checkOut () {

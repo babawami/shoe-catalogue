@@ -72,11 +72,13 @@ function addToCart (shoeId) {
     showFilterdShoes();
 }
 
-function removeFromCart () {
+function removeFromCart (shoeId) {
     getShoesData.returnAllShoes();
-    getShoesData.cancelOrder();
+    getShoesData.cancelOrder(shoeId);
     renderCart();
     renderTemplate();
+    showFilterdShoes();
+    
 }
 
 function checkOutShoe () {
@@ -87,6 +89,7 @@ function checkOutShoe () {
 
 filterBtn.addEventListener('click', function () {
     showFilterdShoes();
+ 
 });
 
 cartBtn.addEventListener('click', function () {

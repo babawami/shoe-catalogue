@@ -72,8 +72,9 @@
     <li>Quantity: {{qty}}</li>
     <li>Price: R {{price}}</li>
    </ul>
+   <button value= {{this.id}} class="remove-btn" onclick= "removeFromCart({{this.id}})" >Cancel</button>
 {{/each}}
-<button class="remove-btn" onclick= removeFromCart() >Cancel</button>
+
 <button  class="checkout-btn" onclick= checkOutShoe() >CheckOut</button>
 
 
