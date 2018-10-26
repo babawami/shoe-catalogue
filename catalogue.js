@@ -100,6 +100,8 @@ function ShoeFinder (storedShoes, storedCart) {
                     } else {
                         currentShoe.in_stock--;
                         shoeInCart.qty++;
+                        console.log(currentShoe.price);
+                        shoeInCart.price += currentShoe.price;
                     }
                 }
             }
@@ -116,7 +118,9 @@ function ShoeFinder (storedShoes, storedCart) {
                 if (foundShoe) {
                     if (currentCartItem.qty > 1) {
                         currentCartItem.qty--;
+                        currentCartItem.price -= foundShoe.price;
                         foundShoe.in_stock++;
+                        
                     } else if (currentCartItem.qty === 1) {
                         foundShoe.in_stock += currentCartItem.qty;
                         currentCartItem.qty--;
