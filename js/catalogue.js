@@ -100,7 +100,6 @@ function ShoeFinder (storedShoes, storedCart) {
                     } else {
                         currentShoe.in_stock--;
                         shoeInCart.qty++;
-                        console.log(currentShoe.price);
                         shoeInCart.price += currentShoe.price;
                     }
                 }
